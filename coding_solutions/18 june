@@ -1,0 +1,61 @@
+
+// C++ implementation to count the 
+// number of possible triangles 
+// for the given sides ranges 
+  
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+// Function to count the number of 
+// possible triangles for the given 
+// sides ranges 
+int count_triangles(int a, int b, 
+                    int c, int d) 
+{ 
+  
+    int ans = 0; 
+  
+    // Iterate for every possible of x 
+    for (int x = a; x <= b; ++x) { 
+  
+        // Range of y is [b, c] 
+        // From this range First 
+        // we will find the number 
+        // of x + y greater than d 
+        int num_greater_than_d = max(d, c + x) - max(d, b + x - 1); 
+  
+        // For x+y greater than d 
+        // we can choose all z from [c, d] 
+        // Total permutation will be 
+        ans += num_greater_than_d * (d - c + 1); 
+  
+        // Now we will find the number 
+        // of x+y in between the [c, d] 
+        int r = min(max(c, c + x), d) - c; 
+        int l = min(max(c, b + x - 1), d) - c; 
+  
+        // [l, r] will be the range 
+        // from total [c, d] x+y belongs 
+        // For any r such that r = x+y 
+        // We can choose z, in the range 
+        // [c, d] only less than r, 
+        // Thus total permutation be 
+        int x1 = (r * (r + 1)) / 2; 
+        int x2 = (l * (l + 1)) / 2; 
+  
+        ans += x1 - x2; 
+    } 
+  
+    return ans; 
+} 
+  
+// Driver Code 
+int main() 
+{ 
+    int a = 2, b = 3, c = 4, d = 5; 
+  
+    cout << count_triangles(a, b, c, d) 
+         << endl; 
+  
+    return 0; 
+} 
