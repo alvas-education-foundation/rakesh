@@ -1,0 +1,102 @@
+#include<iostream>
+#include<conio.h>
+class node{
+	public:
+		int data;
+		node* next;
+		node* prev;
+};
+node* head;
+node* newnode(int x)
+{
+	node* new_node=new node();
+	new_node->data=x;
+	new_node->next=NULL;
+	new_node->prev=NULL;
+	return new_node;
+}
+/*
+void insertathead(int x)
+{
+	node* new_node=newnode(x);
+if (head==NULL)
+{
+	head=new_node;
+	return;
+}
+head->prev=new_node;
+new_node->next=head;
+head=new_node;
+	
+}
+*/
+node* insertattail( node* head,int x)
+{
+	node* new_node=newnode(x);
+	if(head==NULL)
+	{
+		head=new_node;
+		return head;
+	}
+	else
+	{
+		node* temp2=head;
+		while(temp2->next!=NULL)
+		{
+			temp2=temp2->next;
+		}
+		temp2->next=newnode(x);
+       new_node->prev=temp2;
+       new_node->next=NULL;
+	   
+	}
+
+	return head;
+}
+void printt()
+{
+	node* temp =head;
+	while(temp!=NULL)
+	{
+	printf("%d",temp->data);
+		temp=temp->next;
+	}
+	printf("\n");
+}
+void print(node* head)
+{
+
+	while(head !=NULL)
+	{
+		printf("%d",head->data);
+		head=head->next;
+	}
+}
+void reverseprint()
+{
+	node* temp=head;
+	if(temp==NULL) return;
+	while(temp->next!=NULL)  temp=temp->next;
+	while(temp!=NULL)
+	{
+		printf("%d",temp->data);
+		temp=temp->prev;
+
+	}
+}
+int main()
+{
+   head=NULL;
+	/*insertathead(1);
+	insertathead(2);
+	insertathead(3);*/
+    head=insertattail(head,1);
+	head=insertattail(head,2);
+	head=insertattail(head,3);
+	print(head);
+//	printt();
+
+//	reverseprint();
+	getch();
+	return 0;
+}
