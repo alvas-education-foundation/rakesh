@@ -1,0 +1,28 @@
+#include <iostream>
+#include<conio.h>
+using namespace std;
+
+int main() {
+	//code
+	string[] str;
+	cin<<str;
+	int size=sizeof(arr)/sizeof(arr[0]);
+	int count=0;
+	for(int i=0;i<size;i++)
+	{
+	    if(str[i]=='(')
+	    count+=1;
+	    else(str[i]==')')
+	    count-=1;
+	    if(count==0){
+	        cout<<"Balanced";
+	    }
+	    else
+	    {
+	        cout<<"Unbalanced";
+	    }
+	}
+	getch();
+	return 0;
+	
+}
