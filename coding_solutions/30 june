@@ -1,0 +1,27 @@
+int countfreq(int arr[],int key,int siz)
+{
+	int count=0;
+	for(int i=0;i<siz;i++)
+	{
+		if(key==arr[i])
+		{
+			count+=1;
+		}
+	}
+	
+	return count;
+	
+}
+
+int main()
+{
+   int arr[]={1,2,3,3,4,5,5};
+   int key=5;
+   int size=sizeof(arr)/sizeof(arr[0]);
+   int val=countfreq(arr,key,size);
+   cout<<val;
+   getch();
+   return 0;
+   
+   
+}
