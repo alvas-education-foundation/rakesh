@@ -1,0 +1,10 @@
+t = int(input())
+for i in range(t):
+    m, c = input().split()
+    a = [int(j) for j in input().split()]
+    print(a)
+    s = sum(a)
+    if int(s) < int(c) or int(s) == int(c) :
+        print("Yes")
+    else:
+        print("No")
