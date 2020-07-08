@@ -1,0 +1,11 @@
+#valid mountain  corner condition
+
+def binn(arr,length,x):
+  z=0
+  for i in range(length):
+     if arr[i]<x:
+        z+=1
+     else:
+      return False
+  else:
+      return True
