@@ -1,0 +1,13 @@
+#height checker
+arr=[1,1,4,2,1,3]
+l=list(arr)
+l.sort()
+count=0
+j=0
+for i in l:
+  if(i!=arr[j]):
+    count+=1
+    j+=1
+  else:
+    j+=1
+print(count)
