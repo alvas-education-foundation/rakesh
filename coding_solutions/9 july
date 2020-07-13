@@ -1,0 +1,12 @@
+s="what+42"
+s=s.strip(" ")
+i=0
+idx=0
+if(s[i]=="-"or s[i]=="+"):
+  idx=1
+for i in range(idx,len(s)):
+  if(s[i].isdigit() is False):
+    break
+  else:
+    val=int(s[:])
+print(val)
